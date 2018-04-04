@@ -41,7 +41,8 @@ class DT
           null  null     */
  
         tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
+        tree.root.middle = new Node(3);
+        tree.root.right = new Node(4);
  
         /* 2 and 3 become left and right children of 1
                1
