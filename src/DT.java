@@ -162,6 +162,7 @@ public class DT {
         askQuestion(currentNode);
     }
 
+    //Part 3 of exercise
     private void askQuestion(Tree currentNode) throws IOException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println(currentNode.questOrAns + " (enter \"Yes\" or \"No\")");
@@ -176,6 +177,7 @@ public class DT {
                 askQuestion(currentNode);
             }
         }
+
     }
 
 }
