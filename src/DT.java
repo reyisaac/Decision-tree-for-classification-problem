@@ -144,9 +144,7 @@ public class DT {
     }
 
     private void queryBinTree(Tree currentNode) throws IOException {
-
         // Test for leaf node (answer) and missing branches
-
         if (currentNode.yes==null) {
             if (currentNode.no==null) System.out.println(currentNode.questOrAns);
             else System.out.println("Error: Missing \"Yes\" branch at \"" +
@@ -166,9 +164,8 @@ public class DT {
     private void askQuestion(Tree currentNode) throws IOException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println(currentNode.questOrAns + " (enter \"Yes\" or \"No\")");
-
-        //import user
         String answer = keyboard.nextLine();
+
         if (answer.equals("Yes")) queryBinTree(currentNode.yes);
         else {
             if (answer.equals("No")) queryBinTree(currentNode.no);
@@ -177,9 +174,7 @@ public class DT {
                 askQuestion(currentNode);
             }
         }
-
     }
-
 }
 
 
