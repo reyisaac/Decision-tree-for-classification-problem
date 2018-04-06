@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.Scanner;
 
+//DECISION TREE FOR YES OR NO ANSWERS
+
 public class DT {
 
     //CREATING THE TREE
@@ -23,14 +25,14 @@ public class DT {
 
     /* CREATE ROOT NODE */
 
-    public void createRoot(int newNodeID, String newQuestAns) {
-        root = new Tree(newNodeID,newQuestAns);
-        System.out.println("Created root node " + newNodeID);
+    public void createRoot(int newNodeKey, String newQuestAns) {
+        root = new Tree(newNodeKey,newQuestAns);
+        System.out.println("Created root node " + newNodeKey);
     }
 
     /* ADD YES NODE */
 
-    public void addYesNode(int existingNodeID, int newNodeID, String newQuestAns) {
+    public void addYesNode(int existingNodeKey, int newNodeKey, String newQuestAns) {
         // If no root node do nothing
 
         if (root == null) {
@@ -40,11 +42,11 @@ public class DT {
 
         // Search tree
 
-        if (searchAddYesNode(root, existingNodeID, newNodeID, newQuestAns)) {
-            System.out.println("Added node " + newNodeID +
-                    " onto \"yes\" branch of node " + existingNodeID);
+        if (searchAddYesNode(root, existingNodeKey, newNodeKey, newQuestAns)) {
+            System.out.println("Added node " + newNodeKey +
+                    " onto \"yes\" branch of node " + existingNodeKey);
         }
-        else System.out.println("Node " + existingNodeID + " not found");
+        else System.out.println("Node " + existingNodeKey + " not found");
     }
 
     /* SEARCH TREE AND ADD YES NODE */
@@ -136,12 +138,7 @@ public class DT {
         }
     }
 
-    /* --------------------------------------------- */
-    /*                                               */
-    /*               TREE QUERY METHODS             */
-    /*                                               */
-    /* --------------------------------------------- */
-
+    //Querying in Tree
     public void queryBinTree() throws IOException {
         queryBinTree(root);
     }
@@ -161,15 +158,15 @@ public class DT {
                     currentNode.questOrAns + "\" question");
             return;
         }
-
         // Question
-
         askQuestion(currentNode);
     }
 
     private void askQuestion(Tree currentNode) throws IOException {
         Scanner keyboard = new Scanner(System.in);
         System.out.println(currentNode.questOrAns + " (enter \"Yes\" or \"No\")");
+
+        //import user
         String answer = keyboard.nextLine();
         if (answer.equals("Yes")) queryBinTree(currentNode.yes);
         else {
@@ -181,38 +178,6 @@ public class DT {
         }
     }
 
-    /* ----------------------------------------------- */
-    /*                                                 */
-    /*               TREE OUTPUT METHODS               */
-    /*                                                 */
-    /* ----------------------------------------------- */
-
-    /* OUTPUT BIN TREE */
-
-    public void outputBinTree() {
-
-        outputBinTree("1",root);
-    }
-
-    private void outputBinTree(String tag, Tree currentNode) {
-
-        // Check for empty node
-
-        if (currentNode == null) return;
-
-        // Output
-
-        System.out.println("[" + tag + "] nodeID = " + currentNode.key +
-                ", question/answer = " + currentNode.questOrAns);
-
-        // Go down yes branch
-
-        outputBinTree(tag + ".1",currentNode.yes);
-
-        // Go down no branch
-
-        outputBinTree(tag + ".2",currentNode.no);
-    }
 }
 
 
