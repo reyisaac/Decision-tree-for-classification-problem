@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
 
-//DECISION TREE FOR YES OR NO ANSWERS
 
 public class DT {
 

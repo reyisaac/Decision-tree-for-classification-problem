@@ -2,8 +2,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class TreeGeneration {
-    /* GENERATE TREE WITH SET VALUES GIVEN FROM TRAINING AND INFORMATION GAIN*/
-
     static void generateTree(DT newTree) {
         System.out.println("\nGENERATE DECISION TREE");
         System.out.println("======================");
@@ -21,9 +19,6 @@ public class TreeGeneration {
         newTree.addYesNode(9,12,"THE USER WIll BUY THE COMPUTER");
         newTree.addNoNode(9,13,"THE USER WONT BUY THE COMPUTER");
     }
-
-    /* QUERY TREE */
-
     static void queryTree(DT newTree) throws IOException {
         System.out.println("\nQUERY DECISION TREE");
         System.out.println("===================");
@@ -33,8 +28,6 @@ public class TreeGeneration {
 
         optionToExit(newTree);
     }
-
-    /* OPTION TO EXIT PROGRAM */
 
     static void optionToExit(DT newTree) throws IOException {
         Scanner keyboard = new Scanner(System.in);
